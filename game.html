@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+      
+    </head>
+    <body>
+        
+        <h1>Test Your Reactions!</h1>
+        <p>click as quickly as you can</p>
+        <div style="display:flex">
+            <h4>Your Time:</h4>
+            <h4 id="time">-</h4>
+        </div>
+        <button onclick="setTimeout(random, 1000);" id="shape" style ="outline-width: 0px ; width: 60px ; height: 60px"></button>
+        
+        
+        
+        <script> 
+     function getRandomColor() {
+             var letters = '0123456789ABCDEF'.split('');
+             var color = '#';
+             for (var i = 0; i < 6; i++) {
+     
+       color += letters[Math.floor(Math.random() * 16)];
+       // console.log(color);
+  }
+  return color;
+}
+
+ var start = Date.now() ;
+    function random(){
+        var a = start ;
+         start = Date.now();
+        document.getElementById("shape").style.backgroundColor = getRandomColor();
+       
+    
+    var x = Math.floor((Math.random() * 1000) + 200);
+    var y = Math.floor((Math.random() * 300) + 50);
+    var v = Math.floor((Math.random() * 150) + 50);
+    var b = Math.floor((Math.random() * 2) + 0);
+  
+    document.getElementById("shape").style.marginLeft = x+"px";
+    document.getElementById("shape").style.marginTop = y+"px" ;
+    document.getElementById("shape").style.width = v+"px" ;
+    document.getElementById("shape").style.height = v+"px" ;
+    console.log(b);
+    if(b === 1){
+        document.getElementById("shape").style.borderRadius = 50+"%" ;
+    }
+    else {
+        document.getElementById("shape").style.borderRadius = 0+"px"    ;
+    }    
+    
+   
+    document.getElementById("time").innerHTML = (start - a)/1000 - 1+"s" ;
+    
+    
+    
+} ;
+    
+
+</script>
+    </body>
+</html>
